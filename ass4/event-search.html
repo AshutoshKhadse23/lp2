@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Stock Events & News</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Market Events</h2>
+    <input id="q" placeholder="Search stock events..." />
+
+    <ul id="list"></ul>
+  </div>
+
+  <script>
+    const events = [
+      'Nifty 50 Earnings Report',
+      'RBI Monetary Policy Update',
+      'Tesla Q4 Stock Analysis',
+      'Federal Reserve Interest Rate Meeting',
+      'Crude Oil Price Surge',
+      'Tech Stocks Rally – Market Recap'
+    ];
+
+    const list = document.getElementById('list');
+    const q = document.getElementById('q');
+
+    function render(items) {
+      list.innerHTML = items.map(i => `<li>${i}</li>`).join('');
+    }
+
+    q.addEventListener('input', () => {
+      const term = q.value.trim().toLowerCase();
+      if (!term) return render(events);
+      render(events.filter(ev => ev.toLowerCase().includes(term)));
+    });
+
+    render(events);
+  </script>
+</body>
+
+</html>

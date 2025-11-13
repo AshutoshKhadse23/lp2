@@ -1,0 +1,97 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #eef2f7;
+  margin: 30px;
+  color: #1e293b;
+}
+
+h2 {
+  color: #2563eb;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+label {
+  font-size: 16px;
+  color: #334155;
+  font-weight: 500;
+}
+
+select {
+  margin-left: 8px;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+select:hover,
+select:focus {
+  border-color: #2563eb;
+  background: #f8fafc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 22px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+th,
+td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+th {
+  background: #f1f5f9;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+td {
+  color: #475569;
+}
+
+tr:hover {
+  background: #f8fbff;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    margin: 15px;
+  }
+
+  table,
+  th,
+  td {
+    font-size: 14px;
+  }
+
+  select {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* Center + Card Box */
+.page-box {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  max-width: 900px;
+  width: 100%;
+  margin: 40px auto;
+}

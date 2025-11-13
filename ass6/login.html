@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+
+  <div class="login-box">
+    <h2>Admin Login</h2>
+
+    <form id="login">
+      <label>Username</label>
+      <input name="user" placeholder="Enter username">
+
+      <label>Password</label>
+      <input name="pass" type="password" placeholder="Enter password">
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('login').addEventListener('submit', e => {
+      e.preventDefault();
+      window.location.href = 'dashboard.html';
+    });
+  </script>
+
+</body>
+
+</html>

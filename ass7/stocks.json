@@ -1,0 +1,37 @@
+[
+  {
+    "id": "S1",
+    "name": "Apple Inc.",
+    "price": 185.42,
+    "change": 1.2,
+    "sector": "tech"
+  },
+  {
+    "id": "S2",
+    "name": "Microsoft",
+    "price": 327.15,
+    "change": -0.5,
+    "sector": "tech"
+  },
+  {
+    "id": "S3",
+    "name": "Reliance Energy",
+    "price": 102.50,
+    "change": 0.8,
+    "sector": "energy"
+  },
+  {
+    "id": "S4",
+    "name": "Tata Motors",
+    "price": 612.30,
+    "change": -1.1,
+    "sector": "automobile"
+  },
+  {
+    "id": "S5",
+    "name": "HDFC Bank",
+    "price": 1610.40,
+    "change": 0.4,
+    "sector": "finance"
+  }
+]

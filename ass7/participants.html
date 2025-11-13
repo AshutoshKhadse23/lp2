@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <title>Stock Market Dashboard</title>
+</head>
+
+<body>
+
+  <div class="page-box">
+
+    <h2>Stock Market Overview</h2>
+
+    <label>Select Sector:
+      <select id="evt">
+        <option value="">--All Sectors--</option>
+        <option value="tech">Technology</option>
+        <option value="energy">Energy</option>
+        <option value="finance">Finance</option>
+        <option value="automobile">Automobile</option>
+      </select>
+    </label>
+
+    <table id="tbl"></table>
+
+  </div>
+
+  <script>
+    async function getData() {
+      return fetch('stocks.json').then(r => r.json());
+    }
+
+    document.getElementById('evt').addEventListener('change', async () => {
+      const sector = document.getElementById('evt').value;
+      const data = await getData();
+
+      const filtered = sector ? data.filter(s => s.sector === sector) : data;
+      const tbl = document.getElementById('tbl');
+
+      if (!filtered.length) {
+        tbl.innerHTML = "<tr><td colspan='4' style='text-align:center; padding:20px;'>No stocks found</td></tr>";
+        return;
+      }
+
+      tbl.innerHTML =
+        `<thead>
+          <tr>
+            <th>ID</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Change (%)</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${filtered
+          .map(
+            s => `
+              <tr>
+                <td>${s.id}</td>
+                <td>${s.name}</td>
+                <td>$${s.price}</td>
+                <td style="color:${s.change >= 0 ? 'green' : 'red'}">${s.change}%</td>
+              </tr>`
+          )
+          .join("")}
+        </tbody>`;
+    });
+
+    // Load on start
+    document.getElementById('evt').dispatchEvent(new Event('change'));
+  </script>
+
+</body>
+
+</html>
