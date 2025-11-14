@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Admin Login</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="login-body">
@@ -15,19 +23,53 @@
 
     <form id="login">
       <label>Username</label>
-      <input name="user" placeholder="Enter username">
+      <input name="user" id="user" placeholder="Enter username">
+      <div id="userError" class="error">Username is required</div>
 
       <label>Password</label>
-      <input name="pass" type="password" placeholder="Enter password">
+      <input name="pass" id="pass" type="password" placeholder="Enter password">
+      <div id="passError" class="error">Password is required</div>
+
+      <div id="loginError" class="error">Invalid username or password</div>
 
       <button type="submit">Login</button>
     </form>
   </div>
 
   <script>
-    document.getElementById('login').addEventListener('submit', e => {
+    document.getElementById('login').addEventListener('submit', function (e) {
       e.preventDefault();
-      window.location.href = 'dashboard.html';
+
+      let user = document.getElementById('user').value.trim();
+      let pass = document.getElementById('pass').value.trim();
+
+      let valid = true;
+
+      // Required username
+      if (user === "") {
+        document.getElementById('userError').style.display = "block";
+        valid = false;
+      } else {
+        document.getElementById('userError').style.display = "none";
+      }
+
+      // Required password
+      if (pass === "") {
+        document.getElementById('passError').style.display = "block";
+        valid = false;
+      } else {
+        document.getElementById('passError').style.display = "none";
+      }
+
+      if (!valid) return;
+
+      // Hardcoded login check
+      if (user === "ashutosh" && pass === "ashutosh@123") {
+        document.getElementById('loginError').style.display = "none";
+        window.location.href = 'dashboard.html';
+      } else {
+        document.getElementById('loginError').style.display = "block";
+      }
     });
   </script>
 
